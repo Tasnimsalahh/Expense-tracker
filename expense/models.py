@@ -28,17 +28,17 @@ class Account(models.Model):
     balance = models.DecimalField(max_digits=10, decimal_places=2)
     type = models.CharField(max_length=200)
 
-#class Expense(models.Model):
-    #category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    #account = models.ForeignKey(Account, on_delete=models.CASCADE)
-    #amount = models.DecimalField(max_digits=10, decimal_places=2)
-    #time = models.DateTimeField()
-#class Goal(models.Model):
-    #user = models.ForeignKey(User, on_delete=models.CASCADE)
-    #description = models.TextField(default='')
-    #deadline = models.DateTimeField()
-    #targetMoney = models.DecimalField(max_digits=10, decimal_places=2)
-    #account = models.ForeignKey(Account, on_delete=models.CASCADE)
+class Expense(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    account = models.ForeignKey(Account, on_delete=models.CASCADE)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    time = models.DateTimeField()
+class Goal(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    description = models.TextField(default='')
+    deadline = models.DateTimeField()
+    targetMoney = models.DecimalField(max_digits=10, decimal_places=2)
+    account = models.ForeignKey(Account, on_delete=models.CASCADE)
 
 
 
