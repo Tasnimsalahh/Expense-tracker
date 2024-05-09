@@ -1,4 +1,4 @@
-<embed src="https://omaremadd.github.io/static/spendee/SPENDEE.svg" style="filter: invert();" width=450/>
+<img src="https://omaremadd.github.io/static/spendee/SPENDEE_dark.png" width=500>
 
 ---
 
@@ -7,7 +7,7 @@ To clone the repository, use [GitHub Desktop](https://desktop.github.com/) or ru
 ```cmd
 git clone https://github.com/Tasnimsalahh/Expense-tracker.git
 ```
-<strong style="color:#ff5555;">Important:</strong>  
+<strong style="color : #ff5555">📌Important</strong>  
 Before installing the virtual environment and/or all the required Python libraries, open the windows **Command Prompt** (NOT ~~PowerShell~~), then run these commands from the repo root
 ```cmd
 pip install virtualenv
