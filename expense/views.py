@@ -29,3 +29,34 @@ class UserProfile(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer
     def get_object(self):
         return self.request.user
+
+
+class CategoryList(generics.ListCreateAPIView):
+    queryset=Category.objects.all()
+    serializer_class=CategorySerializer
+
+    def perform_create(self,serializer):
+        serializer.save(user=self.request.user)
+
+class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+class AccountView(generics.ListCreateAPIView):
+    queryset = Account.objects.all()
+    serializer_class = AccountSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+class AccountDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Account.objects.all()
+    serializer_class = AccountSerializer
+
+class ExpenseList(generics.ListCreateAPIView):
+    queryset = Expense.objects.all()
+    serializer_class = ExpenseSerializer
+
+class ExpenseDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Expense.objects.all()
+    serializer_class = ExpenseSerializer
+
