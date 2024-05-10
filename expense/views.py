@@ -11,12 +11,17 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            # return redirect('home')
+            return redirect('home')
         else:
             print(form.errors)
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+class UserProfile(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = UserSerializer
+    def get_object(self):
+        return self.request.user    
 
 class UserBalance(generics.RetrieveUpdateDestroyAPIView):
     queryset = user_balance.objects.all()
@@ -24,12 +29,6 @@ class UserBalance(generics.RetrieveUpdateDestroyAPIView):
 
     def get_object(self):
         return self.request.user.user_balance
-
-class UserProfile(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = UserSerializer
-    def get_object(self):
-        return self.request.user
-
 
 class CategoryList(generics.ListCreateAPIView):
     queryset=Category.objects.all()
@@ -42,7 +41,7 @@ class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-class AccountView(generics.ListCreateAPIView):
+class AccountList(generics.ListCreateAPIView):
     queryset = Account.objects.all()
     serializer_class = AccountSerializer
 
@@ -60,3 +59,24 @@ class ExpenseDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Expense.objects.all()
     serializer_class = ExpenseSerializer
 
+class ShoppingList(generics.ListCreateAPIView):
+    queryset = shopping_list.objects.all()
+    serializer_class = ShoppingListSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+class ShoppingListDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = shopping_list.objects.all()
+    serializer_class = ShoppingListSerializer
+
+class GoalList(generics.ListCreateAPIView):
+    queryset = Goal.objects.all()
+    serializer_class = GoalSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+class GoalDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Goal.objects.all()
+    serializer_class = GoalSerializer
