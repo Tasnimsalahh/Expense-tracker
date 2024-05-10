@@ -1,7 +1,10 @@
 <img src="https://omaremadd.github.io/static/spendee/SPENDEE_dark.png" width=500>
 
 ---
-
+## Prerequisites:
+1. MySQL (Download [xampp](https://www.apachefriends.org/))
+2. Start Apache and MySQL servers in xampp
+3. login to [localhost/phpmyadmin](http://localhost/phpmyadmin), create a database called "expense_tracker"
 ## Helpful commands:
 To clone the repository, use [GitHub Desktop](https://desktop.github.com/) or run this command:
 ```cmd
@@ -28,3 +31,11 @@ Add it to `requirements.txt` before your next commit using this command (<span s
 ```cmd
 pip freeze > requirements.txt
 ```
+
+---
+## Color Palette:
+**WIP**
+<!-- ![](https://placehold.co/15x15/031131/031131) `#031131`  
+![](https://placehold.co/15x15//) `#`  
+![](https://placehold.co/15x15/eeeeee/eeeeee) `#eeeeee`  
+![](https://placehold.co/15x15//) `#` -->
