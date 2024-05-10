@@ -18,7 +18,14 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
 
-class UserProfile(generics.RetrieveAPIView):
+class UserBalance(generics.RetrieveUpdateDestroyAPIView):
+    queryset = user_balance.objects.all()
+    serializer_class = UserBalanceSerializer
+
+    def get_object(self):
+        return self.request.user.user_balance
+
+class UserProfile(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer
     def get_object(self):
         return self.request.user
