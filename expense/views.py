@@ -5,6 +5,9 @@ from .forms import SignUpForm
 from .serializers import *
 # Create your views here.
 
+def home (request):
+    return render(request, 'home.html')
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
