@@ -10,79 +10,76 @@
 </head>
 <body>
     <main>
-        <div
-            class="table-responsive-lg">
-            <table class="table " style = "margin-top: 10vh;">
-                <tbody>
-                    <tr class="">
-                        <td scope="row">
-                            <div class="card text-start" style = "width: 50vw">
-                                <h4 class="card-title text-center">Accounts</h4><hr>
-                                <div class="card-body ">
-                                    <div class="d-flex flex-wrap justify-content-center">
-                                        <div class="card p-2" style="border: none"><a
-                                            name=""
-                                            id=""
-                                            class="btn btn-secondary"
-                                            href="#"
-                                            role="button">account 1</a>
-                                        </div>
-                                        <div class="card p-2" style="border: none"><a
-                                            name=""
-                                            id=""
-                                            class="btn btn-secondary"
-                                            href="#"
-                                            role="button">account 2</a>
-                                        </div>
-                                        <div class="card p-2" style="border: none"><a
-                                            name=""
-                                            id=""
-                                            class="btn btn-primary"
-                                            href="#"
-                                            role="button"> + add account</a>
-                                        </div>
-                                    </div>
-                                </div>
+        {% comment %} <div class="d-flex justify-content-center align-items-center"> {% endcomment %}
+        <div class="container">
+            <div class="row">
+                <div class="card text-start col-6">
+                    <h4 class="card-title text-center">Accounts</h4>
+                    <hr>
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <div class="card p-2" style="border: none">
+                                <a name="" id="" class="btn btn-secondary" href="#" role="button">
+                                    account 1<br>
+                                    <span class="badge bg-primary">11000 EGP</span>
+                                </a>
                             </div>
-                        </td>
-                        <td>      
-                            <div class="card text-start" style = "width: 50vw">
-                            <h4 class="card-title text-center">Cash flow</h4>
-                            <div class="card-body ">
-                                <div>
-                                    <div class="card p-2">Income</div> 
-                                    {% comment %} TODO {% endcomment %}
-                                    <div class="card p-2">Expenses</div>
-                                </div>
+                            <div class="card p-2" style="border: none">
+                                <a name="" id="" class="btn btn-secondary" href="#" role="button">
+                                    account 2<br>
+                                    <span class="badge bg-primary">2000 EGP</span>
+                                </a>
                             </div>
-                        </div></td>
+                            <div class="card p-2" style="border: none">
+                                <a name="" id="" class="btn btn-primary" href="#" role="button"> + add account</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card text-start col-6" >
+                    <h4 class="card-title text-center">Cash flow</h4>
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <div class="card p-2">Income</div>
+                            {% comment %} TODO {% endcomment %}
+                            <div class="card p-2">Expenses</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            {% comment %} table records  {% endcomment %}
+            <div class="row">
+                <table class="table table-striped" style = "margin-bottom: 10vh;">
+                    <h4 class="card-title text-center">Records</h4><hr>
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">account</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">amount</th>
                     </tr>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>@mdo</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
         </div>
-        <div>
-        <table class="table table-striped" style = "margin-bottom: 10vh;">
-            <h4 class="card-title text-center">Records</h4><hr>
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Category</th>
-                <th scope="col">account</th>
-                <th scope="col">Date</th>
-                <th scope="col">amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-              </tr>
-            </tbody>
-        </table>
-    </div>
+
+
+       
     <main>
 </body>
 {% endblock %}
