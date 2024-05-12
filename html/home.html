@@ -1,20 +1,19 @@
 {% extends 'base.html' %}
 {% load widget_tweaks %}
 {% load static %}
+
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<title>Home</title>
+    <title>Home</title>
 </head>
 <body>
     <main>
-        {% comment %} <div class="d-flex justify-content-center align-items-center"> {% endcomment %}
         <div class="container">
-            <div class="row">
+            <div class="row p-3">
                 <div class="card text-start col-6">
-                    <h4 class="card-title text-center">Accounts</h4>
+                    <h4 class="card-title text-center p-3">Accounts</h4>
                     <hr>
                     <div class="card-body">
                         <div class="d-flex flex-wrap justify-content-center">
@@ -36,50 +35,68 @@
                         </div>
                     </div>
                 </div>
-                <div class="card text-start col-6" >
-                    <h4 class="card-title text-center">Cash flow</h4>
-                    <div class="card-body">
-                        <div class="d-flex flex-wrap justify-content-center">
-                            <div class="card p-2">Income</div>
-                            {% comment %} TODO {% endcomment %}
-                            <div class="card p-2">Expenses</div>
+                <div class="card text-start col-3 p-3">
+                    <h4 class="card-title text-center p-2">Total Balance</h4>
+                    <div class="container">
+                        <div class="row">
+                            <div >
+                                <div class="card border">
+                                    <div class="card-body">
+                                      <div class="container-fluid justify-content-center" style=" align-content: center;">
+                                        <span style="display: flex; justify-content: center; font-size: x-large;"><strong id="balance">13000</strong>&nbsp;EGP</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
+                <div class="card text-start col-3 p-3">
+                    <h4 class="card-title text-center p-2">Cash flow</h4>
+                    <div class="container">
+                        <div class="row">
+                            <div >
+                                <div class="card p-2">Income: <span class="card p-2">25000 EGP</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div >
+                                <div class="card p-2">Expenses: <span class="card p-2">12000 EGP</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            {% comment %} table records  {% endcomment %}
-            <div class="row">
-                <table class="table table-striped" style = "margin-bottom: 10vh;">
-                    <h4 class="card-title text-center">Records</h4><hr>
+            <!-- table records -->
+            <div class="row p-3">
+                <table class="table table-striped" style="margin-bottom: 10vh;">
+                    <h4 class="card-title text-center p-3">Records</h4>
+                    <hr>
                     <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">account</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">amount</th>
-                    </tr>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">account</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">amount</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                    </tr>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-
-
-
         </div>
-
-
-       
-    <main>
+    </main>
 </body>
+</html>
 {% endblock %}
