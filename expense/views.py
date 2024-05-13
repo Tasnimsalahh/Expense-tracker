@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from rest_framework import generics
 from .forms import SignUpForm
+from .forms import PeriodForm
 from .serializers import *
 # Create your views here.
 
@@ -20,6 +21,14 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
+
+
+def analytics(request):
+    return render(request, 'analytics.html')
+
+def analytics(request):
+    form = PeriodForm()
+    return render(request, 'analytics.html', {'form': form})
 
 class UserProfile(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer

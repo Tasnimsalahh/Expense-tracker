@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Analytics</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row p-3 justify-content-center">
+            <div class="container">
+                <div class="row p-3 justify-content-center">
+                    <div class="card border-none justify-content-center">
+                        <div class="card-body">
+                            <div class="col-4 text-start">
+                                <h4 class="card-title">Expenses report</h4>
+                            </div>
+                            <div class="row p-3 justify-content-center">
+                                <div class="col-3 text-start">
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        {{ form.as_p }}
+                                        {% comment %} <button type="submit" class="btn btn-primary">Submit</button> {% endcomment %}
+                                     </form>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row p-3 justify-content-center">
+            <div class="col-12 text-start">
+                <div
+                    class="table-responsive-lg"
+                >
+                    <table
+                        class="table table-striped table-hover align-middle"
+                    >
+                        <thead>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">amount spent</th>
+                                    <th scope="col">placeholder</th>
+                                </tr>
+                            </thead>
+                            
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td scope="row"><span>Item</span></td>
+                                <td><span>Item</span></td>
+                                <td><span>Item</span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><span>Item</span></td>
+                                <td><span>Item</span></td>
+                                <td><span>Item</span></td>
+                            </tr>
+                            <tr>
+                                <td scope="row"><span>Item</span></td>
+                                <td><span>Item</span></td>
+                                <td><span>Item</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+{% endblock %}

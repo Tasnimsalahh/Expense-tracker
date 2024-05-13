@@ -10,3 +10,11 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
+
+class PeriodForm(forms.Form):
+    PERIOD_CHOICES = [
+        ('7', '7 days'),
+        ('30', '30 days'),
+        ('90', '90 days'),
+    ]
+    period = forms.ChoiceField(choices=PERIOD_CHOICES)
