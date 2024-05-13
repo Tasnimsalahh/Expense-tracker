@@ -5,36 +5,32 @@ async function getInfo(info){
     return finalresponse;
 }
 //function to post category
-async function addCategory(category){
+async function addData(data , type){
     const csrfToken = getCookie('csrftoken');
-    let response = await fetch(`http://${window.location.host}/api/category/?format=json`,{
+    let response = await fetch(`http://${window.location.host}/api/${type}/?format=json`,{
         method:'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRFToken': csrfToken
         },
-        body: JSON.stringify(category)
+        body: JSON.stringify(data)
     })
     console.log(response.json());
-}
-//function to add record 
-async function addRecord(){
-    const csrfToken = getCookie('csrftoken');
-    
 }
 //function to display data in dropdown menu
 function displayInfo(info,data){
     let dropdown = document.getElementById(`${info}dropdown`);
    let dropDownData = ``;
     for(let i=0 ;i<data.length;i++){
-        var infoName;
+        let infoName;
+        let infoId=data[i].id;
         if(info == 'category'){
             infoName=data[i].title;
         }
         else if(info == 'account'){
             infoName=data[i].name;
         }
-        dropDownData += ` <option value="">${infoName}</option>`;
+        dropDownData += ` <option value="${infoId}">${infoName}</option>`;
     }
     dropdown.innerHTML=dropDownData
 }
@@ -42,7 +38,7 @@ function displayInfo(info,data){
 document.querySelectorAll('input[name="btnradio"]').forEach(radio => {
     radio.addEventListener('change', async function() {
         // This function is triggered whenever a radio button is selected
-       let sign = document.getElementById('sign');
+        let sign = document.getElementById('sign');
        console.log(sign.innerHTML);
        if(this.id == 'expense'){
             sign.innerHTML='-';
@@ -52,7 +48,6 @@ document.querySelectorAll('input[name="btnradio"]').forEach(radio => {
        }
       await displayAndFetchData('category');
       await displayAndFetchData('account');
-      
        
     });
 });
@@ -64,9 +59,34 @@ document.getElementById("category-btn").addEventListener('click',async function(
         title : catName,
         color : catColor
     }
-    addCategory(category);
+    addData(category,'category');
     await displayAndFetchData('category');
 })
+
+//To add new record 
+document.getElementById('saveBtn').addEventListener('click',function(){
+    let catId = Number(document.getElementById('categorydropdown').value);
+    let accountId = Number(document.getElementById('accountdropdown').value);
+    console.log(catId,accountId);
+    let date = document.getElementById('date').value 
+    let time =  document.getElementById('time').value;
+    let time_date = `${date}T${time}:00Z`;
+    console.log(time_date);
+    let amount = Number(document.getElementById('amount').value);
+    let type = document.querySelector('input[name="btnradio"]:checked').id;
+    if(type == 'expense'){
+        amount=0-amount;
+    }
+    let expense = {
+        amount : amount.toString(),
+        time : time_date,
+        category : catId,
+        account : accountId
+    }
+    console.log(expense);
+    addData(expense,'expense');
+})
+
 //function to display and fetch the required data
 async function displayAndFetchData(info){
     let data = await getInfo(info);
@@ -78,6 +98,8 @@ function getCookie(name) {
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
+
+  //to display categories and accounts upon opening
  displayAndFetchData('category');
  displayAndFetchData('account');
 
