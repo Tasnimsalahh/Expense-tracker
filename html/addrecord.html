@@ -17,13 +17,13 @@
                             type="radio"
                             class="btn-check"
                             name="btnradio"
-                            id="btncheck1"
+                            id="expense"
                             autocomplete="off"
                             checked
                         />
                         <label
                             class="btn btn-outline-primary"
-                            for="btncheck1"
+                            for="expense"
                             >Expense</label
                         >
                     
@@ -31,12 +31,12 @@
                             type="radio"
                             class="btn-check"
                             name="btnradio"
-                            id="btncheck2"
+                            id="income"
                             autocomplete="off"
                         />
                         <label
                             class="btn btn-outline-primary"
-                            for="btncheck2"
+                            for="income"
                             >Income</label
                         >
                     
@@ -64,14 +64,14 @@
                         <select
                             class="form-select"
                             name=""
-                            id=""
+                            id="categorydropdown"
                         >
                             <option selected>Select one</option>
                             <option value="">Shopping</option>
                             <option value="">Food</option>
                             <option value="">Transportation</option>
                         </select>
-                        <button class="btn btn-primary dropdown-toggle dropdown-left" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button  class="btn btn-primary dropdown-toggle dropdown-left" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             New
                         </button>
                         <div class="dropdown-menu">
@@ -80,14 +80,14 @@
                                     <div class="row mb-3">
                                         <div class="col-6">
                                             <label for="newCategory" class="form-label">Name:</label>
-                                            <input type="text" class="form-control" id="newCategory" placeholder="Enter category name">
+                                            <input type="text" class="form-control" id="categoryName" placeholder="Enter category name">
                                         </div>
                                         <div class="col-6">
                                             <label for="" class="form-label"> Color:</label>
-                                            <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#6ee8b7" title="Choose your color">
+                                            <input type="color" class="form-control form-control-color" id="categoryColor" value="#6ee8b7" title="Choose your color">
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Add</button>
+                                    <button id="category-btn" type="button" class="btn btn-primary">Add</button>
                                 </div>
                             </form>
                         </div>
@@ -98,7 +98,7 @@
                     <select
                         class="form-select"
                         name=""
-                        id=""
+                        id="accountdropdown"
                     >
                         <option selected>Select one</option>
                         <option value="">Cash</option>
@@ -110,7 +110,7 @@
             <div class="row">
                 <label for="" class="form-label">Amount</label>
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1">-</span>
+                    <span class="input-group-text" id="sign">-</span>
                     <input type="text" class="form-control" placeholder="0" aria-label="Amount" aria-describedby="basic-addon2">
                     <span class="input-group-text" id="basic-addon2">EGP</span>
                 </div>
@@ -127,5 +127,5 @@
             </div>
         </form>
     </div>
-
+    <script src="{% static 'js/addrecord.js' %}"></script>
 {% endblock %}
