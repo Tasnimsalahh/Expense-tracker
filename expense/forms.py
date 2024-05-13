@@ -6,18 +6,16 @@ from .models import user_balance
 class SignUpForm(UserCreationForm):
     username = forms.CharField(max_length=150, help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.')
     email = forms.EmailField(max_length=255, help_text='Required. Inform a valid email address.')
-    first_name = forms.CharField(max_length=50, help_text='Required. Inform your first name.')
-    last_name = forms.CharField(max_length=50, help_text='Required. Inform your last name.')
-    primary_currency = forms.CharField(max_length=3, help_text='Required. Inform your primary currency.')
+    primary_currency = forms.CharField()
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
+        fields = ('username', 'email', 'password1', 'password2', 'primary_currency')
     def save(self, commit=True):
         user = super().save(commit=False)
         if commit:
             user.save()
             user_balance.objects.create(user=user, primary_currency=self.cleaned_data.get('primary_currency'), total_balance=0)
-            return user
+        return user
 
 class PeriodForm(forms.Form):
     PERIOD_CHOICES = [

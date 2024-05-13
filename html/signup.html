@@ -65,11 +65,11 @@
                                           <div class="my-3">
                                               <label for="" class="form-label"><h5>Choose primary currency:</h5></label>
                                               {% comment %} {% render_field form.first_name placeholder="First Name" class="form-control" id="first_name" %} {% endcomment %}
-                                            {% render_field form.currency placeholder="Currency" class="form-control" id="currency" %}
+                                            {% render_field form.primary_currency placeholder="Currency" class="form-control" id="primary_currency" %}
                                               <select
                                               class="form-select"
-                                              name=""
-                                              id=""
+                                              name="primary_currency"
+                                              id="primary_currency"
                                               style=""
                                           >
                                               <option selected>Currency</option>
