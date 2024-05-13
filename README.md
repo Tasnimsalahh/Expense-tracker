@@ -34,8 +34,7 @@ pip freeze > requirements.txt
 
 ---
 ## Color Palette:
-**WIP**
-<!-- ![](https://placehold.co/15x15/031131/031131) `#031131`  
-![](https://placehold.co/15x15//) `#`  
-![](https://placehold.co/15x15/eeeeee/eeeeee) `#eeeeee`  
-![](https://placehold.co/15x15//) `#` -->
+- Primary: ![](https://placehold.co/15x15/4a9c7b/4a9c7b/png) `#4a9c7b`  
+- Secondary: ![](https://placehold.co/15x15/343a40/343a40/png) `#343a40`  
+- Tertiary: ![](https://placehold.co/15x15/2b3035/2b3035/png) `#2b3035`  
+- Background![](https://placehold.co/15x15/212529/212529/png) `#212529`
