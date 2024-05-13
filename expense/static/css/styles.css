@@ -1,0 +1,10 @@
+
+.record-radio {
+    background-color: #4a9c7b4b;
+    color: #cacaca;
+}
+
+.record-radio:hover {
+    background-color: #4a9c7b;
+    color:black;
+}
