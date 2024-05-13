@@ -21,7 +21,7 @@ class shopping_list(models.Model):
 class Category(models.Model):
     title = models.CharField(max_length=200)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    color = models.CharField(max_length=20, default='343a40')
     def str(self):
         return self.title
 
@@ -30,7 +30,7 @@ class Account(models.Model):
     currency = models.CharField(max_length=10)
     balance = models.DecimalField(max_digits=10, decimal_places=2)
     type = models.CharField(max_length=200)
-    # TODO: add color field
+    color = models.CharField(max_length=20, default='343a40')
 
 class Expense(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -44,7 +44,3 @@ class Goal(models.Model):
     deadline = models.DateTimeField()
     targetMoney = models.DecimalField(max_digits=10, decimal_places=2)
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
-
-
-
-

@@ -24,62 +24,69 @@ def signup(request):
 class UserProfile(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = UserSerializer
     def get_object(self):
-        return self.request.user    
+        return self.request.user
 
 class UserBalance(generics.RetrieveUpdateDestroyAPIView):
-    queryset = user_balance.objects.all()
     serializer_class = UserBalanceSerializer
-
+    def get_queryset(self):
+        return user_balance.objects.filter(user=self.request.user)
     def get_object(self):
         return self.request.user.user_balance
 
 class CategoryList(generics.ListCreateAPIView):
-    queryset=Category.objects.all()
     serializer_class=CategorySerializer
-
+    def get_queryset(self):
+        return Category.objects.filter(user=self.request.user)
     def perform_create(self,serializer):
         serializer.save(user=self.request.user)
 
 class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    def get_queryset(self):
+        return Category.objects.filter(user=self.request.user)
 
 class AccountList(generics.ListCreateAPIView):
-    queryset = Account.objects.all()
     serializer_class = AccountSerializer
-
+    def get_queryset(self):
+        return Account.objects.filter(user=self.request.user)
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
 class AccountDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Account.objects.all()
     serializer_class = AccountSerializer
+    def get_queryset(self):
+        return Account.objects.filter(user=self.request.user)
 
 class ExpenseList(generics.ListCreateAPIView):
-    queryset = Expense.objects.all()
     serializer_class = ExpenseSerializer
+    def get_queryset(self):
+        return Expense.objects.filter(user=self.request.user)
 
 class ExpenseDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Expense.objects.all()
     serializer_class = ExpenseSerializer
+    def get_queryset(self):
+        return Expense.objects.filter(user=self.request.user)
 
 class ShoppingList(generics.ListCreateAPIView):
-    queryset = shopping_list.objects.all()
     serializer_class = ShoppingListSerializer
-
+    def get_queryset(self):
+        return shopping_list.objects.filter(user=self.request.user)
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
 class ShoppingListDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = shopping_list.objects.all()
     serializer_class = ShoppingListSerializer
+    def get_queryset(self):
+        return shopping_list.objects.filter(user=self.request.user)
 
 class GoalList(generics.ListCreateAPIView):
-    queryset = Goal.objects.all()
     serializer_class = GoalSerializer
-
+    def get_queryset(self):
+        return Goal.objects.filter(user=self.request.user)
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
 class GoalDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Goal.objects.all()
     serializer_class = GoalSerializer
+    def get_queryset(self):
+        return Goal.objects.filter(user=self.request.user)
