@@ -51,6 +51,8 @@ function calcAnalytics(expenses, days, exchange, primary_currency) {
             } else {
                 analytics[expenses[i].category_name].income += expenses[i].amount / exchange[primary_currency.toLowerCase()][expenses[i].account_currency.toLowerCase()];
             }
+            analytics[expenses[i].category_name].expenses = Math.round(analytics[expenses[i].category_name].expenses * 100) / 100;
+            analytics[expenses[i].category_name].income = Math.round(analytics[expenses[i].category_name].income * 100) / 100;
             analytics[expenses[i].category_name].category_color = expenses[i].color;
         }
     }
