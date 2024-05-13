@@ -59,6 +59,41 @@
             </div>
             <div class="row mb-3">
                 <div class="col-6">
+                    <label for="" class="form-label">Category</label>
+                    <div class="input-group mb-3">
+                        <select
+                            class="form-select"
+                            name=""
+                            id=""
+                        >
+                            <option selected>Select one</option>
+                            <option value="">Shopping</option>
+                            <option value="">Food</option>
+                            <option value="">Transportation</option>
+                        </select>
+                        <button class="btn btn-primary dropdown-toggle dropdown-left" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            New
+                        </button>
+                        <div class="dropdown-menu">
+                            <form class="">
+                                <div class="mb-3 container">
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <label for="newCategory" class="form-label">Name:</label>
+                                            <input type="text" class="form-control" id="newCategory" placeholder="Enter category name">
+                                        </div>
+                                        <div class="col-6">
+                                            <label for="" class="form-label"> Color:</label>
+                                            <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#6ee8b7" title="Choose your color">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Add</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
                     <label for="" class="form-label">Account</label>
                     <select
                         class="form-select"
@@ -69,19 +104,6 @@
                         <option value="">Cash</option>
                         <option value="">Telda</option>
                         <option value="">Banque Misr</option>
-                    </select>
-                </div>
-                <div class="col-6">
-                    <label for="" class="form-label">Category</label>
-                    <select
-                        class="form-select"
-                        name=""
-                        id=""
-                    >
-                        <option selected>Select one</option>
-                        <option value="">Shopping</option>
-                        <option value="">Food</option>
-                        <option value="">Transportation</option>
                     </select>
                 </div>
             </div>
@@ -95,9 +117,11 @@
             </div>
             <div class="row">
                 <div class="mb-3 col-6">
+                    <label for="" class="form-label">Date</label>
                     <input type="date" class="form-control" placeholder="Date" aria-label="Note" aria-describedby="basic-addon2">
                 </div>
                 <div class="mb-3 col-6">
+                    <label for="" class="form-label">Time</label>
                     <input type="time" class="form-control" placeholder="Time" aria-label="Note" aria-describedby="basic-addon2">
                 </div>
             </div>
