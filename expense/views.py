@@ -9,7 +9,9 @@ from .serializers import *
 # Create your views here.
 
 def home (request):
-    return render(request, 'home.html')
+    if request.user.is_authenticated:
+        return render(request, 'home.html')
+    return redirect('login')
 
 def signup(request):
     if request.method == 'POST':
