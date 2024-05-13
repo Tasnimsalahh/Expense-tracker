@@ -118,11 +118,11 @@
             <div class="row">
                 <div class="mb-3 col-6">
                     <label for="" class="form-label">Date</label>
-                    <input id="date" type="date" class="form-control" placeholder="Date" aria-label="Note" aria-describedby="basic-addon2">
+                    <input id="date" type="date" class="form-control" placeholder="Date" aria-label="Note" aria-describedby="basic-addon2" value="{% now 'Y-m-d' %}">
                 </div>
                 <div class="mb-3 col-6">
                     <label for="" class="form-label">Time</label>
-                    <input id="time" type="time" class="form-control" placeholder="Time" aria-label="Note" aria-describedby="basic-addon2">
+                    <input id="time" type="time" class="form-control" placeholder="Time" aria-label="Note" aria-describedby="basic-addon2" value="{% now 'H:i' %}">
                 </div>
             </div>
         </form>

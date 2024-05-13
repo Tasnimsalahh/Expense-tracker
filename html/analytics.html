@@ -19,10 +19,12 @@
                                 <h4 class="card-title">Expenses report</h4>
                             </div>
                             <div class="row p-3 justify-content-center">
-                                <div class="col-3 text-start">
+                                <div class="col-2 text-start">
                                     <form method="post">
                                         {% csrf_token %}
-                                        {{ form.as_p }}
+                                        {% comment %} {{ form.as_p }} {% endcomment %}
+                                        <label for="period">Period:</label>
+                                        {% render_field form.period class+="form-select" id="period" onchange="initialize(this.value)" %}
                                         {% comment %} <button type="submit" class="btn btn-primary">Submit</button> {% endcomment %}
                                      </form>
                                 </div>
@@ -44,35 +46,22 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Category</th>
-                                    <th scope="col">amount spent</th>
-                                    <th scope="col">placeholder</th>
+                                    <th scope="col">Expenses</th>
+                                    <th scope="col">Income</th>
+                                    <th scope="col">Cash Flow</th>
                                 </tr>
                             </thead>
                             
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row"><span>Item</span></td>
-                                <td><span>Item</span></td>
-                                <td><span>Item</span></td>
-                            </tr>
-                            <tr>
-                                <td scope="row"><span>Item</span></td>
-                                <td><span>Item</span></td>
-                                <td><span>Item</span></td>
-                            </tr>
-                            <tr>
-                                <td scope="row"><span>Item</span></td>
-                                <td><span>Item</span></td>
-                                <td><span>Item</span></td>
-                            </tr>
+                        <tbody id="analytics_tbody">
+                            
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="{% static 'js/analytics.js' %}"></script>
 </body>
 </html>
 {% endblock %}
