@@ -8,3 +8,11 @@
     background-color: #4a9c7b;
     color:black;
 }
+
+.btn-primary {
+    color: white;
+}
+
+.btn-primary:hover {
+    color: white;
+}
