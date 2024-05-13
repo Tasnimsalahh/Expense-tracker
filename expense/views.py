@@ -26,11 +26,9 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
 
-
 def analytics(request):
-    return render(request, 'analytics.html')
-
-def analytics(request):
+    if not (request.user.is_authenticated):
+        return redirect('login')
     form = PeriodForm()
     return render(request, 'analytics.html', {'form': form})
 

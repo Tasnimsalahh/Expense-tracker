@@ -20,6 +20,7 @@
                 </li>
             </ul>
             <div class="navbar-nav me-1 mb-2 mb-lg-auto align-center">
+                {% if user.is_authenticated %}
                 <li class="nav-item mx-lg-2">
                     <div class="d-grid gap-2">
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addRecordModal">
@@ -28,7 +29,6 @@
                         
                     </div>
                 </li>
-                {% if user.is_authenticated %}
                 <li class="nav-item mx-lg-2">
                     <form action="{% url 'logout' %}" method="post">
                         {% csrf_token %}

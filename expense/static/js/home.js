@@ -2,7 +2,7 @@ var accountName = document.getElementById('accountName');
 var accountBalance = document.getElementById('accountBalance');
 
 async function getAccount() {
-    var response = await fetch(`http://${window.location.host}/API/account/?format=json`);
+    var response = await fetch(`http://${window.location.host}/api/account/?format=json`);
     var finalResponse = await response.json();
     console.log(finalResponse.account.name);
     user = finalResponse;
