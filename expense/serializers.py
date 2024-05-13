@@ -43,9 +43,21 @@ class AccountSerializer(serializers.ModelSerializer):
             userbalance.save()
 
 class ExpenseSerializer(serializers.ModelSerializer):
+    category_name = serializers.SerializerMethodField()
+    category_color = serializers.SerializerMethodField()
+    account_name = serializers.SerializerMethodField()
+    account_color = serializers.SerializerMethodField()
     class Meta:
         model = Expense
-        fields = '__all__'
+        fields = ['id', 'amount', 'time', 'category', 'category_name', 'category_color', 'account', 'account_name', 'account_color']
+    def get_category_name(self, obj):
+        return obj.category.title
+    def get_category_color(self, obj):
+        return obj.category.color
+    def get_account_name(self, obj):
+        return obj.account.name
+    def get_account_color(self, obj):
+        return obj.account.color
     def get_fields(self):
         fields = super(ExpenseSerializer, self).get_fields()
         request = self.context.get('request', None)
