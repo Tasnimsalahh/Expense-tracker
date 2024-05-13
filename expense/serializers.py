@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email']
+        fields = ['username', 'email']
     def create(self, validated_data):
         user = User.objects.create(**validated_data)
         user_balance.objects.create(user=user)
@@ -37,10 +37,10 @@ class AccountSerializer(serializers.ModelSerializer):
         return account
     @staticmethod
     def update_user_balance(account):
-        UserBalance = user_balance.objects.get(user=account.user)
-        if UserBalance.primary_currency == account.currency:
-            UserBalance.total_balance = sum(account.balance for account in Account.objects.filter(user=account.user, currency=account.currency))
-            UserBalance.save()
+        userbalance = user_balance.objects.get(user=account.user)
+        if userbalance.primary_currency == account.currency:
+            userbalance.total_balance = sum(account.balance for account in Account.objects.filter(user=account.user, currency=account.currency))
+            userbalance.save()
 
 class ExpenseSerializer(serializers.ModelSerializer):
     class Meta:
