@@ -1,3 +1,6 @@
+# css, scss stuff
+build-bs.bat
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
