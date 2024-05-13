@@ -59,8 +59,15 @@ document.getElementById("category-btn").addEventListener('click',async function(
         title : catName,
         color : catColor
     }
-    addData(category,'category');
+    let response = await addData(category,'category');
     await displayAndFetchData('category');
+    if(!response.ok){
+        displayMsg('fail',`Couldn't add category , Please try again`);
+    }
+    else{
+        displayMsg('success',`Category added successfully`);
+
+    }
 })
 
 //To add new record 
@@ -86,10 +93,10 @@ document.getElementById('saveBtn').addEventListener('click',async function(){
     console.log(expense);
     let response = await addData(expense,'expense');
     if(!response.ok){
-        displayMsg('fail');
+        displayMsg('fail' ,`Couldn't add record , Please try again`);
     }
     else{
-        displayMsg('success');
+        displayMsg('success','Record added successfully');
     }
     clearform();
     console.log(response);
@@ -98,14 +105,14 @@ document.getElementById('saveBtn').addEventListener('click',async function(){
 })
 
 //Displaying msg
-function displayMsg(status){
+function displayMsg(status , msg){
     var successMessage = document.querySelector('.alert-success');
     if(status == 'success'){
-    successMessage.innerHTML='Record added successfully';
+    successMessage.innerHTML=msg;
     successMessage.classList.add('show');
     }
     else{
-        successMessage.innerHTML=`Couldn't add record , Please try again`;
+        successMessage.innerHTML=msg;
         successMessage.classList.remove('alert-success');
         successMessage.classList.add('alert-danger');
         successMessage.classList.add('show');
