@@ -24,15 +24,18 @@ function displayInfo(info,data){
     for(let i=0 ;i<data.length;i++){
         let infoName;
         let infoId=data[i].id;
+        let currency = '';
         if(info == 'category'){
             infoName=data[i].title;
         }
         else if(info == 'account'){
             infoName=data[i].name;
+            currency=data[i].currency;
         }
-        dropDownData += ` <option value="${infoId}">${infoName}</option>`;
+        dropDownData += ` <option value="${infoId}-${currency}">${infoName}</option>`;
     }
-    dropdown.innerHTML=dropDownData
+    dropdown.innerHTML=dropDownData;
+    document.getElementById('accountdropdown').value='';
 }
 //
 document.querySelectorAll('input[name="btnradio"]').forEach(radio => {
@@ -72,13 +75,14 @@ document.getElementById("category-btn").addEventListener('click',async function(
 
 //To add new record 
 document.getElementById('saveBtn').addEventListener('click',async function(){
-    let catId = Number(document.getElementById('categorydropdown').value);
-    let accountId = Number(document.getElementById('accountdropdown').value);
-    console.log(catId,accountId);
+    let catId = document.getElementById('categorydropdown').value;
+    catId=Number(catId.split('-')[0]);
+    console.log(catId);
+    let accountId =document.getElementById('accountdropdown').value;
+    accountId=Number(accountId.split('-')[0]);
     let date = document.getElementById('date').value 
     let time =  document.getElementById('time').value;
     let time_date = `${date}T${time}:00Z`;
-    console.log(time_date);
     let amount = Number(document.getElementById('amount').value);
     let type = document.querySelector('input[name="btnradio"]:checked').id;
     if(type == 'expense'){
@@ -102,6 +106,12 @@ document.getElementById('saveBtn').addEventListener('click',async function(){
     console.log(response);
     
     
+})
+//to change currency depending on account selected 
+let account =document.getElementById('accountdropdown');
+account.addEventListener('change',function(){
+    let value = account.value.split('-')[1]
+    document.getElementById('currency').innerHTML = value;
 })
 
 //Displaying msg
@@ -154,4 +164,3 @@ function getCookie(name) {
   //to display categories and accounts upon opening
  displayAndFetchData('category');
  displayAndFetchData('account');
-
