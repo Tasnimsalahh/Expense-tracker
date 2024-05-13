@@ -4,7 +4,7 @@
 
     {% comment %} choosing category should lead to the option of adding a new category {% endcomment %}
     <div class="container">
-        <form method="post">
+        <form id="recordform" method="post">
             {% csrf_token %}
             <div class="row">
                 <div class="d-flex justify-content-center mb-3" id="record-type">
@@ -126,6 +126,9 @@
                 </div>
             </div>
         </form>
+        <div class="alert alert-success fade" role="alert">
+            A simple success alert—check it out!
+          </div>
     </div>
 
 {% endblock %}

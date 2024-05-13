@@ -15,7 +15,7 @@ async function addData(data , type){
         },
         body: JSON.stringify(data)
     })
-    console.log(response.json());
+    return  response;
 }
 //function to display data in dropdown menu
 function displayInfo(info,data){
@@ -64,7 +64,7 @@ document.getElementById("category-btn").addEventListener('click',async function(
 })
 
 //To add new record 
-document.getElementById('saveBtn').addEventListener('click',function(){
+document.getElementById('saveBtn').addEventListener('click',async function(){
     let catId = Number(document.getElementById('categorydropdown').value);
     let accountId = Number(document.getElementById('accountdropdown').value);
     console.log(catId,accountId);
@@ -84,8 +84,53 @@ document.getElementById('saveBtn').addEventListener('click',function(){
         account : accountId
     }
     console.log(expense);
-    addData(expense,'expense');
+    let response = await addData(expense,'expense');
+    if(!response.ok){
+        displayMsg('fail');
+    }
+    else{
+        displayMsg('success');
+    }
+    clearform();
+    console.log(response);
+    
+    
 })
+
+//Displaying msg
+function displayMsg(status){
+    var successMessage = document.querySelector('.alert-success');
+    if(status == 'success'){
+    successMessage.innerHTML='Record added successfully';
+    successMessage.classList.add('show');
+    }
+    else{
+        successMessage.innerHTML=`Couldn't add record , Please try again`;
+        successMessage.classList.remove('alert-success');
+        successMessage.classList.add('alert-danger');
+        successMessage.classList.add('show');
+    }
+    // Fade out the success message after 3 seconds
+    setTimeout(() => {
+        successMessage.classList.remove('show');
+        if(status != 'sucess'){
+            successMessage.classList.remove('alert-danger');
+            successMessage.classList.add('alert-success');
+        } // Start fade out by removing 'show'
+    }, 1500); // Change '3000' to however long you want the alert visible
+}
+function clearform(){
+    let catId = document.getElementById('categorydropdown');
+    let accountId = document.getElementById('accountdropdown');
+    let date = document.getElementById('date'); 
+    let time =  document.getElementById('time');
+    let amount = document.getElementById('amount');
+    catId.value='';
+    accountId.value='';
+    date.value='';
+    time.value='';
+    amount.value='';
+}
 
 //function to display and fetch the required data
 async function displayAndFetchData(info){
