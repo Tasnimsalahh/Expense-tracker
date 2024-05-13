@@ -47,9 +47,10 @@ class ExpenseSerializer(serializers.ModelSerializer):
     category_color = serializers.SerializerMethodField()
     account_name = serializers.SerializerMethodField()
     account_color = serializers.SerializerMethodField()
+    account_currency = serializers.SerializerMethodField()
     class Meta:
         model = Expense
-        fields = ['id', 'amount', 'time', 'category', 'category_name', 'category_color', 'account', 'account_name', 'account_color']
+        fields = ['id', 'amount', 'time', 'category', 'category_name', 'category_color', 'account', 'account_name', 'account_color', 'account_currency']
     def get_category_name(self, obj):
         return obj.category.title
     def get_category_color(self, obj):
@@ -58,6 +59,8 @@ class ExpenseSerializer(serializers.ModelSerializer):
         return obj.account.name
     def get_account_color(self, obj):
         return obj.account.color
+    def get_account_currency(self, obj):
+        return obj.account.currency
     def get_fields(self):
         fields = super(ExpenseSerializer, self).get_fields()
         request = self.context.get('request', None)
