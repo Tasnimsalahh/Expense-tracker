@@ -114,6 +114,15 @@ account.addEventListener('change',function(){
     document.getElementById('currency').innerHTML = value;
 })
 
+//refresh page on closing the addrecord form to load new records
+document.getElementById('closeXbutton').addEventListener('click',function(){
+    refreshOnClosing();
+});
+document.getElementById('closebtn').addEventListener('click',function(){
+    refreshOnClosing();
+});
+
+
 //Displaying msg
 function displayMsg(status , msg){
     var successMessage = document.querySelector('.alert-success');
@@ -160,6 +169,10 @@ function getCookie(name) {
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
+  
+ function refreshOnClosing(){
+    window.location.reload();
+ } 
 
   //to display categories and accounts upon opening
  displayAndFetchData('category');

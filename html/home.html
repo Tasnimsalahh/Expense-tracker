@@ -16,9 +16,9 @@
                     <h4 class="card-title text-center p-3">Accounts</h4>
                     <hr>
                     <div class="card-body">
-                        <div class="d-flex flex-wrap justify-content-center">
-                            <div id="accountName" class="card p-2" style="border: none">
-                                <a name="" id="" class="btn btn-secondary" href="#" role="button">
+                        <div id="accountHolder" class="d-flex flex-wrap justify-content-center">
+                            <div class="card p-2" style="border: none">
+                                <a name="" id="accountName" class="btn btn-secondary" href="#" role="button">
                                     account 1<br>
                                     <span id="accountBalance" class="badge bg-primary">11000 EGP</span>
                                 </a>
@@ -30,6 +30,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="card text-start col-3 p-3">
                     <h4 class="card-title text-center p-2">Total Balance</h4>
@@ -39,7 +40,7 @@
                                 <div class="card border">
                                     <div class="card-body">
                                       <div class="container-fluid justify-content-center" style=" align-content: center;">
-                                        <span style="display: flex; justify-content: center; font-size: x-large;"><strong id="balance">13000</strong>&nbsp;EGP</span>
+                                        <span id="totalBalance" style="display: flex; justify-content: center; font-size: x-large;"><strong id="balance">13000</strong>&nbsp;EGP</span>
                                       </div>
                                     </div>
                                 </div>
@@ -49,24 +50,37 @@
                 </div>
                 <div class="card text-start col-3 p-3">
                     <h4 class="card-title text-center p-2">Cash flow</h4>
+                    <div class="row align-items-center">
+                        <div class="col-2">
+                            <label for="periodDropDown" class="form-label ">Period:</label>
+                        </div>
+                        <div class="col-10">
+                            <select class="form-select" id="periodDropDown">
+                                <option value="week" >7-Days</option>
+                                <option value="month">Current month</option>
+                                <option value="all" selected>All time</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
                     <div class="container">
                         <div class="row">
                             <div >
-                                <div class="card p-2">Income: <span class="card p-2">25000 EGP</span></div>
+                                <div class="card p-2">Income: <span id="home-income" class="card p-2">25000 EGP</span></div>
                             </div>
                         </div>
                     </div>
                     <div class="container">
                         <div class="row">
                             <div >
-                                <div class="card p-2">Expenses: <span class="card p-2">12000 EGP</span></div>
+                                <div class="card p-2">Expenses: <span id="home-expenses" class="card p-2">12000 EGP</span></div>
                             </div>
                         </div>
                     </div>
                     <div class="container">
                         <div class="row">
                             <div >
-                                <div class="card p-2">Net cash flow: <span class="card p-2">34000 EGP</span></div>
+                                <div class="card p-2">Net cash flow: <span id="home-cashFlow" class="card p-2">34000 EGP</span></div>
                             </div>
                         </div>
                     </div>
@@ -87,7 +101,7 @@
                             <th scope="col">amount</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="records">
                         <tr>
                             <th scope="row">1</th>
                             <td>Mark</td>
