@@ -1,4 +1,4 @@
-<img src="https://omaremadd.github.io/static/spendee/SPENDEE_dark.png" width=500>
+<img src="https://omaremadd.github.io/static/spendee/img/SPENDEE_dark.png" width=500>
 
 ---
 ## Prerequisites:
