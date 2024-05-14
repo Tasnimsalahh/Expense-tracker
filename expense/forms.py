@@ -22,5 +22,7 @@ class PeriodForm(forms.Form):
         ('7', '7 days'),
         ('30', '30 days'),
         ('90', '90 days'),
+        ('365', '365 days'),
+        ('100000', 'All time')
     ]
     period = forms.ChoiceField(choices=PERIOD_CHOICES)
