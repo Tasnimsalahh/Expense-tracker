@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import user_balance
+from .models import user_balance, Category
 
 class SignUpForm(UserCreationForm):
     username = forms.CharField(max_length=150, help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.')
@@ -15,6 +15,27 @@ class SignUpForm(UserCreationForm):
         if commit:
             user.save()
             user_balance.objects.create(user=user, primary_currency=self.cleaned_data.get('primary_currency'), total_balance=0)
+            
+            # Add default categories
+            default_categories = [
+                ("Housing", "#FF0000"),
+                ("Groceries", "#00FF00"),
+                ("Transportation", "#0000FF"),
+                ("Insurance", "#FFFF00"),
+                ("Debt Payments", "#00FFFF"),
+                ("Personal Care", "#FF00FF"),
+                ("Dining Out", "#FFA500"),
+                ("Entertainment", "#FFC0CB"),
+                ("Shopping", "#00CED1"),
+                ("Subscriptions", "#FF1493"),
+                ("Travel", "#008000"),
+                ("Education", "#800080"),
+                ("Fees & Services", "#FF4500"),
+                ("Work", "#FFD700"),
+                ("Investments", "#FF69B4")
+            ]
+            for category, color in default_categories:
+                Category.objects.create(title=category, color=color, user=user)
         return user
 
 class PeriodForm(forms.Form):

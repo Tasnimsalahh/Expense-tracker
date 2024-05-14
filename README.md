@@ -3,7 +3,7 @@
 ---
 ## Prerequisites:
 1. MySQL (Download [xampp](https://www.apachefriends.org/))
-2. Start Apache and MySQL servers in xampp
+2. Start Apache and MySQL servers in xampp *(required everytime you run the server)*
 3. login to [localhost/phpmyadmin](http://localhost/phpmyadmin), create a database called "expense_tracker"
 ## Helpful commands:
 To clone the repository, use [GitHub Desktop](https://desktop.github.com/) or run this command:
@@ -34,7 +34,7 @@ pip freeze > requirements.txt
 
 ---
 ## Color Palette:
-- Primary: ![](https://placehold.co/15x15/4a9c7b/4a9c7b/png) `#4a9c7b`  
-- Secondary: ![](https://placehold.co/15x15/343a40/343a40/png) `#343a40`  
-- Tertiary: ![](https://placehold.co/15x15/2b3035/2b3035/png) `#2b3035`  
-- Background![](https://placehold.co/15x15/212529/212529/png) `#212529`
+- Primary: `#4a9c7b` <img src="https://placehold.co/15x15/4a9c7b/4a9c7b/png" alt="color" style="border-radius:15px;vertical-align:middle">   
+- Secondary: `#343a40` <img src="https://placehold.co/15x15/343a40/343a40/png" alt="color" style="border-radius:15px;vertical-align:middle">   
+- Tertiary: `#2b3035` <img src="https://placehold.co/15x15/2b3035/2b3035/png" alt="color" style="border-radius:15px;vertical-align:middle">   
+- Background: `#212529` <img src="https://placehold.co/15x15/212529/212529/png" alt="color" style="border-radius:15px;vertical-align:middle"> 

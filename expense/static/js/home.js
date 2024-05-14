@@ -72,7 +72,7 @@ function displayAccount(data) {
     accHolder+=`<div id="${data[i].id}"  class="card p-2" style="border: none">
     <a name="" id="accounName-${data[i].id}" class="btn btn-secondary" href="#" role="button" style=" background-color:${data[i].color};border-color:${data[i].color}; color:${getTextColor(data[i].color)}">
         ${data[i].name}<br>
-        <span id="accountBalance-${data[i].id}" class="badge bg-primary">${data[i].balance + data[i].currency}</span>
+        <span id="accountBalance-${data[i].id}" class="badge bg-primary">${data[i].balance + ' ' + data[i].currency}</span>
     </a>
 </div>`
    }
@@ -99,24 +99,24 @@ async function displayRecords(records){
             color='f99';
         }
         
-        recordHolder+=` <tr>
-        <th scope="row">${i+1}</th>
-        <td><span class="badge" style="color:${getTextColor(records[i].category_color)};background-color:${records[i].category_color}; font-size:18px">${records[i].category_name}</span></td>
-        <td><span class="badge" style="color:${getTextColor(records[i].account_color)};background-color:${records[i].account_color}; font-size:18px">${records[i].account_name}</span></td>
-        <td>${date}</td>
-        <td><span style="color:#${color}">${records[i].amount} ${records[i].account_currency}</span></td>
-        <td><a
-            name=""
-            id=""
-            class="btn btn-warning btn-sm disabled"
-            href="#"
-            role="button"
-            >Edit</a>
-            <button id="delete-${records[i].id}" type="button" class="btn btn-danger btn-sm">Delete</button>
+        recordHolder = ` <tr>
+            <th scope="row">${i+1}</th>
+            <td><span class="badge" style="color:${getTextColor(records[i].category_color)};background-color:${records[i].category_color}; font-size:18px">${records[i].category_name}</span></td>
+            <td><span class="badge" style="color:${getTextColor(records[i].account_color)};background-color:${records[i].account_color}; font-size:18px">${records[i].account_name}</span></td>
+            <td>${date}</td>
+            <td><span style="color:#${color}">${records[i].amount > 0 ? '+':''}${records[i].amount} ${records[i].account_currency}</span></td>
+            <td><a
+                name=""
+                id=""
+                class="btn btn-warning btn-sm disabled"
+                href="#"
+                role="button"
+                >Edit</a>
+                <button id="delete-${records[i].id}" type="button" class="btn btn-danger btn-sm">Delete</button>
+                
+            </td>
             
-        </td>
-        
-`;
+        ` + recordHolder;
     }
     document.getElementById('records').innerHTML=recordHolder;
 }
@@ -167,9 +167,12 @@ function formatDate(isoDate) {
 function deleteRecordButton(data){
     for(let i = 0 ; i<data.length ; i++){
         document.getElementById(`delete-${data[i].id}`).addEventListener('click',async function(){
-           let response = await deleteDatabyId('expense',data[i].id);
-           console.log(response);
-         window.location.reload();
+           let confirmation = confirm("Are you sure you want to delete this record?");
+           if (confirmation) {
+               let response = await deleteDatabyId('expense',data[i].id);
+               console.log(response);
+               window.location.reload();
+           }
         })
     }
 }

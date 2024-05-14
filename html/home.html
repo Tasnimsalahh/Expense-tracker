@@ -12,7 +12,7 @@
     <main>
         <div class="container">
             <div class="row p-3">
-                <div class="card hover card text-start col-6">
+                <div class="card hover card text-start col-md-6 col-12">
                     <h4 class="card-title text-center p-3">Accounts</h4>
                     <hr>
                     <div class="card-body">
@@ -32,7 +32,7 @@
                     </div>
                     
                 </div>
-                <div class="card text-start col-3 p-3">
+                <div class="card text-start col-md-3 col-12 p-3">
                     <h4 class="card-title text-center p-2">Total Balance</h4>
                     <div class="container">
                         <div class="row">
@@ -48,22 +48,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="card text-start col-3 p-3">
+                <div class="card text-start col-md-3 col-12 p-3">
                     <h4 class="card-title text-center p-2">Cash flow</h4>
-                    <div class="row align-items-center">
-                        <div class="col-2">
-                            <label for="periodDropDown" class="form-label ">Period:</label>
-                        </div>
-                        <div class="col-10">
-                            <select class="form-select" id="periodDropDown">
-                                <option value="week" >7-Days</option>
-                                <option value="month">Current month</option>
-                                <option value="all" selected>All time</option>
-                            </select>
-                        </div>
-                    </div>
-                    <br>
                     <div class="container">
+                        <div class="row align-items-center">
+                            <div>
+                                <div class="card p-2">Period: 
+                                    <select class="form-select" id="periodDropDown">
+                                        <option value="week" >7-Days</option>
+                                        <option value="month">Current month</option>
+                                        <option value="all" selected>All time</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div >
                                 <div class="card p-2">Income: <span id="home-income" class="card p-2">25000 EGP</span></div>
@@ -96,9 +94,10 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Category</th>
-                            <th scope="col">account</th>
+                            <th scope="col">Account</th>
                             <th scope="col">Date</th>
-                            <th scope="col">amount</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody id="records">
