@@ -84,6 +84,8 @@ function displayAccount(data) {
 `;
 }
 
+
+
 async function displayRecords(records){
     let recordHolder = ``;
     for(let i = 0 ;i<records.length;i++){
@@ -120,6 +122,8 @@ async function displayRecords(records){
 }
 
 
+
+
 function getTextColor(backgroundColor) {
     var r = parseInt(backgroundColor.substring(1, 3), 16);
     var g = parseInt(backgroundColor.substring(3, 5), 16);
@@ -127,6 +131,9 @@ function getTextColor(backgroundColor) {
     var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
     return (yiq >= 128) ? 'black' : 'white';
 }
+
+
+
 
 async function calcTotalBalance(data , primary_currency, exchange ){
     console.log(primary_currency.toLowerCase());
@@ -140,6 +147,9 @@ async function calcTotalBalance(data , primary_currency, exchange ){
     console.log(totalBalance);
     document.getElementById('totalBalance').innerHTML=totalBalance.toFixed(2) + ' ' + primary_currency.toUpperCase();
 }
+
+
+
 function formatDate(isoDate) {
     let dateObj = new Date(isoDate);
     let year = dateObj.getFullYear().toString(); // Get last two digits of the year
