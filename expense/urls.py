@@ -22,3 +22,6 @@ urlpatterns = [
     path('api/goal/', views.GoalList.as_view(), name='api_goal'),
     path('api/goal/<int:pk>/', views.GoalDetail.as_view(), name='api_goal_detail'),
 ]
+
+handler404 = 'my_app.views.handler404'
+handler500 = 'my_app.views.handler500'

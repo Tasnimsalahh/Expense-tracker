@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <title>404</title>
+</head>
+<body>
+    <div class="container" style="display: flex; justify-content: center; align-items: center; height: 90vh;">
+        <div style="font-size: x-large;">
+            <h1 class="text-primary" style="font-size: xxx-large;">500 - Server Error</h1>
+            <p><br>
+            <a href="{% url 'home' %}"> Return to Home </a></p>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
