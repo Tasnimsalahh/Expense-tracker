@@ -4,7 +4,7 @@ var expenses;
 const doughnutChart = document.getElementById('doughnut-chart');
 
 async function getPrimaryCurrency() {
-    var response = await fetch(`http://${window.location.host}/api/balance/?format=json`);
+    var response = await fetch(`https://${window.location.host}/api/balance/?format=json`);
     var finalResponse = await response.json();
     // console.log("balance: " + finalResponse.primary_currency);
     return finalResponse.primary_currency.toString();
@@ -29,7 +29,7 @@ async function initialize(days) {
 initialize(7);
 
 async function getExpenses() {
-    var response = await fetch(`http://${window.location.host}/api/expense/?format=json`);
+    var response = await fetch(`https://${window.location.host}/api/expense/?format=json`);
     var finalResponse = await response.json();
     console.log(finalResponse);
     expenses = finalResponse;

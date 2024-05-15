@@ -1,13 +1,13 @@
 //function to get category or account info
 async function getInfo(info){
-    var response = await fetch(`http://${window.location.host}/api/${info}/?format=json`);
+    var response = await fetch(`https://${window.location.host}/api/${info}/?format=json`);
     var finalresponse = await response.json();
     return finalresponse;
 }
 //function to post category
 async function addData(data , type){
     const csrfToken = getCookie('csrftoken');
-    let response = await fetch(`http://${window.location.host}/api/${type}/?format=json`,{
+    let response = await fetch(`https://${window.location.host}/api/${type}/?format=json`,{
         method:'POST',
         headers: {
             'Content-Type': 'application/json',

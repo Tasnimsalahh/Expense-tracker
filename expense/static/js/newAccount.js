@@ -30,7 +30,7 @@ function submitNewAccount() {
     // Get the CSRF token from the cookie
   const csrfToken = getCookie('csrftoken');
 
-  fetch(`http://${window.location.host}/api/account/`, {
+  fetch(`https://${window.location.host}/api/account/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

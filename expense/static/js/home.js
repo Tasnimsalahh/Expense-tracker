@@ -1,18 +1,18 @@
 
 async function getData(info){
-    var response = await fetch(`http://${window.location.host}/api/${info}/?format=json`);
+    var response = await fetch(`https://${window.location.host}/api/${info}/?format=json`);
     var finalresponse = await response.json();
     return finalresponse;
 }
 async function getDatabyID(info ,id){
-    var response = await fetch(`http://${window.location.host}/api/${info}/${id}/?format=json`);
+    var response = await fetch(`https://${window.location.host}/api/${info}/${id}/?format=json`);
     var finalresponse = await response.json();
     return finalresponse;
 }
 
 
 async function getPrimaryCurrency() {
-    var response = await fetch(`http://${window.location.host}/api/balance/?format=json`);
+    var response = await fetch(`https://${window.location.host}/api/balance/?format=json`);
     var finalResponse = await response.json();
     return finalResponse.primary_currency.toString();
 }
@@ -27,7 +27,7 @@ async function getExch(currency) {
 
 async function deleteDatabyId(type , id){
     const csrfToken = getCookie('csrftoken');
-    let response = await fetch(`http://${window.location.host}/api/${type}/${id}/?format=json`,{
+    let response = await fetch(`https://${window.location.host}/api/${type}/${id}/?format=json`,{
         method:'DELETE',
         headers: {
             'Content-Type': 'application/json',
