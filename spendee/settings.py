@@ -24,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6-jbh&wu7@!$$yw1rv&fm!kv2nkd82ny9oewp)s&of0zt5y$e5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://www.omaremad.run.place']
+CSRF_TRUSTED_ORIGINS = ['https://www.omaremad.run.place', 'https://spendee.omaremad.run.place']
 USE_X_FORWARDED_HOST = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -140,3 +140,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+REST_FRAMEWORK = dict()
+if not DEBUG:
+    REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = (
+            "rest_framework.renderers.JSONRenderer",
+        )

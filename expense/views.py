@@ -1,12 +1,26 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.http import Http404
+from django.template import RequestContext
 from rest_framework import generics, status
 from rest_framework.response import Response
 from .forms import SignUpForm
 from .forms import PeriodForm
 from .serializers import *
 # Create your views here.
+
+
+def handler404(request, *args, **argv):
+    response = render('404.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 404
+    return response
+
+def handler500(request, *args, **argv):
+    response = render('500.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 500
+    return response
 
 def home (request):
     if request.user.is_authenticated:
