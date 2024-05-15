@@ -99,9 +99,9 @@ function updateAnalytics(days, exchange, primary_currency) {
         },
         options: {
             scales: {
-                y: {
-                    beginAtZero: true
-                }
+                // y: {
+                //     beginAtZero: true
+                // }
             }
         }
     }).update();
