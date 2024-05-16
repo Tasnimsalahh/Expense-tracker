@@ -11,7 +11,7 @@ from .serializers import *
 def home (request):
     if request.user.is_authenticated:
         return render(request, 'home.html')
-    return redirect('login')
+    return render(request, 'get_started.html')
 
 def signup(request):
     if request.method == 'POST':

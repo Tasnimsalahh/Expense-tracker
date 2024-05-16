@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Spendee - Get Started</title>
+</head>
+<body>
+    <main>
+        <div class="card" style="width:100%; align-self:center; position: relative;">
+            <img src="{% static "img/background.png" %}" class="card-img-top" 
+            alt="welcome picture" style="width: 100%; height: calc(100vh - 58px); object-fit: cover;">
+            <div
+              style="position: absolute; top: 0; left: 0; color: white; padding: 10px; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(5, 5, 5, 0.9);">
+              
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 col-12">
+                            <h1>Welcome to <br></h1>
+                            <img src="{% static 'img/SPENDEE_dark.svg' %}" style="width:100%">
+                            <p style="text-align: justify;"><br>
+                            Spendee is a comprehensive personal finance manager designed to simplify your financial life. With Spendee, you can effortlessly track your expenses and income, gain valuable insights into your spending habits, and effectively manage your money. Whether you're budgeting for a big purchase, saving for a dream vacation, or planning for retirement, Spendee provides the tools and features you need to achieve your financial goals. Take control of your finances today and experience the peace of mind that comes with knowing exactly where your money is going. Start your financial journey with Spendee now and unlock a world of financial freedom and empowerment.
+                            </p>
+                            <h3>Create your account now &nbsp;&nbsp;<a href="{% url 'signup' %}" class="btn btn-primary btn-lg">Sign Up</a></h3>
+                        </div>
+                        <div class="col-md-1" style="height:80px">
+
+                        </div>
+                        <div class="col-md-6 col-12" style="display: flex; justify-content: center; align-items: center;">
+                            <div class="max-width: 80%; max-height: 100%">
+                                <img src="{% static 'img/analytics.png' %}" style="max-width: 100%; max-height: 100%; object-fit: scale-down;border-radius:40px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </main>
+</body>
+</html>
+{% endblock %}
