@@ -10,11 +10,23 @@ Spendee is a comprehensive expense tracker application designed to simplify fina
 ## Prerequisites:
 1. MySQL (Download [xampp](https://www.apachefriends.org/))
 2. Start Apache and MySQL servers in xampp *(required everytime you run the server)*
-3. login to [localhost/phpmyadmin](http://localhost/phpmyadmin), create a database called "expense_tracker"
+3. Login to [localhost/phpmyadmin](http://localhost/phpmyadmin), create a database called "expense_tracker"
+4. Install [nginx](https://nginx.org/en/download.html) and gunicorn (linux) or waitress (windows)
+5. Obtain SSL certificate for your domain name via [Certbot](https://certbot.eff.org/)
+6. Follow [nginx documentation](https://nginx.org/en/docs/) to setup your server
+   
 ## Helpful commands:
 To clone the repository, use [GitHub Desktop](https://desktop.github.com/) or run this command:
 ```cmd
 git clone https://github.com/Tasnimsalahh/Expense-tracker.git
+```
+To switch to the production ready branch:
+```cmd
+git checkout production-env
+```
+to revert back to main:
+```cmd
+git checkout main
 ```
 <strong style="color : #ff5555">📌Important</strong>  
 Before installing the virtual environment and/or all the required Python libraries, open the windows **Command Prompt** (NOT ~~PowerShell~~), then run these commands from the repo root

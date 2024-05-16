@@ -1,7 +1,9 @@
 @echo off
-start "Nginx" /D "C:\Users\OmarEmadSayedEl-Ward\Downloads\nginx-1.25.5" call start_nginx.bat
+echo Starting nginx
+start "Closing nginx" /D "C:\nginx" nginx -s quit
+start "nginx" /D "C:\nginx" nginx
+echo.
 echo Starting venv...
-cd D:\Dev\Web\CSE334s\Expense-tracker
 call venv\Scripts\activate
 echo.
 echo Starting waitress...

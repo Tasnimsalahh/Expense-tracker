@@ -21,7 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6-jbh&wu7@!$$yw1rv&fm!kv2nkd82ny9oewp)s&of0zt5y$e5'
+import os
+with open(os.path.join(BASE_DIR, 'SECRET/SECRET_KEY')) as f:
+    SECRET_KEY = f.read()
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -131,7 +134,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = '../../omaremadd.github.io/static/spendee'
+STATIC_ROOT = 'expense/static'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
