@@ -24,7 +24,7 @@
                 <li class="nav-item mx-lg-2">
                     <div class="d-grid gap-2">
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addRecordModal">
-                            Add Record
+                            <img src="{% static 'img/add-circle-svgrepo-com.svg' %}" alt="add" width="25" height="25" /> Record
                         </button>
                         
                     </div>
@@ -49,7 +49,9 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" style="min-width: 40vw;">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addRecordModalLabel">Add Record</h5>
+          <h5 class="modal-title" id="addRecordModalLabel"><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addRecordModal">
+            <img src="{% static 'img/add-circle-svgrepo-com.svg' %}" alt="add" width="25" height="25" /> Record
+        </button></h5>
           <button id="closeXbutton" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

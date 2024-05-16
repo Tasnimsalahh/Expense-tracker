@@ -78,7 +78,7 @@ function displayAccount(data) {
    }
    document.getElementById('accountHolder').innerHTML=accHolder+`<div class="card p-2" style="border: none">
    <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addAccountModal">
-       + New Account
+   <img src="/static/img/add-circle-svgrepo-com.svg" alt="Delete" width="25" height="25" /> Account
    </button>
 </div>
 `;
@@ -111,8 +111,9 @@ async function displayRecords(records){
                 class="btn btn-warning btn-sm disabled"
                 href="#"
                 role="button"
-                >Edit</a>
-                <button id="delete-${records[i].id}" type="button" class="btn btn-danger btn-sm">Delete</button>
+                ><img src="/static/img/edit-pencil-01-svgrepo-com.svg" alt="Delete" width="20" height="20" /></a>
+                <button id="delete-${records[i].id}" type="button" class="btn btn-danger btn-sm">
+                 <img src="/static/img/delete-svgrepo-com.svg" alt="Delete" width="20" height="20" /></button>
                 
             </td>
             
