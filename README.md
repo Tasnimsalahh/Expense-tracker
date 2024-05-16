@@ -1,6 +1,12 @@
 <img src="https://omaremadd.github.io/static/spendee/img/SPENDEE_dark.png" width=500>
 
 ---
+## Introduction:
+*Introducing Spendee: The Definitive Expense Tracker App*
+
+Spendee is a comprehensive expense tracker application designed to simplify financial management for individuals. Built with a focus on usability, efficiency, and security, Spendee offers a robust set of features to help users track their expenses, analyze spending patterns, and achieve financial goals with ease.
+
+---
 ## Prerequisites:
 1. MySQL (Download [xampp](https://www.apachefriends.org/))
 2. Start Apache and MySQL servers in xampp *(required everytime you run the server)*
